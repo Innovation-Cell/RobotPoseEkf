@@ -1,0 +1,8 @@
+<launch>
+
+  <node pkg="rosbag" type="play" name="imu_data_player" args="/home/rishabh/localization/imu_data.bag" />
+  <node pkg="rosbag" type="play" name="encoder_data_player" args="/home/rishabh/localization/encoder_data.bag" />
+
+  <node pkg="rosbag" type="record" name="record_for_odom_testing" args="-a" />
+
+</launch>

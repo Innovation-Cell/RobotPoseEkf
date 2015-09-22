@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/rishabh/localization/src/localization/include/vn100.h
+vncp_services.h
+/home/rishabh/localization/src/localization/include/vncp_services.h
+vn_kinematics.h
+/home/rishabh/localization/src/localization/include/vn_kinematics.h
+vn_linearAlgebra.h
+/home/rishabh/localization/src/localization/include/vn_linearAlgebra.h
+
+/home/rishabh/localization/src/localization/include/vn_errorCodes.h
+
+/home/rishabh/localization/src/localization/include/vn_kinematics.h
+
+/home/rishabh/localization/src/localization/include/vn_linearAlgebra.h
+
+/home/rishabh/localization/src/localization/include/vncp_services.h
+Windows.h
+-
+pthread.h
+-
+vn_errorCodes.h
+/home/rishabh/localization/src/localization/include/vn_errorCodes.h
+
+/home/rishabh/localization/src/localization/src/Libraries/vn100.c
+stdlib.h
+-
+string.h
+-
+stdio.h
+-
+vn100.h
+/home/rishabh/localization/src/localization/src/Libraries/vn100.h
+vn_errorCodes.h
+/home/rishabh/localization/src/localization/src/Libraries/vn_errorCodes.h
+

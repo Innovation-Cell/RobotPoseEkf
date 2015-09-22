@@ -1,0 +1,11 @@
+<launch>
+
+  <node pkg="localization" type="final_viz" name="final_viz" respawn="true" />
+  <node pkg="localization" type="odom_viz" name="odom_viz" respawn="true" />
+  <node pkg="localization" type="gps_viz" name="gps_viz" respawn="true" />
+
+  <node pkg="rosbag" type="play" name="player" args="/home/rishabh/localization/2015-09-19-19-06-57.bag"/>
+
+  <node pkg="rviz" type="rviz" name="rviz" />
+
+</launch>

@@ -1,0 +1,1 @@
+/usr/bin/gcc  -fPIC    -shared -Wl,-soname,libvncp_services.so -o /home/rishabh/localization/devel/lib/libvncp_services.so CMakeFiles/vncp_services.dir/src/Libraries/vncp_services.c.o 
