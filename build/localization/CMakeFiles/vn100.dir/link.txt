@@ -1,1 +1,0 @@
-/usr/bin/gcc  -fPIC    -shared -Wl,-soname,libvn100.so -o /home/rishabh/localization/devel/lib/libvn100.so CMakeFiles/vn100.dir/src/Libraries/vn100.c.o 

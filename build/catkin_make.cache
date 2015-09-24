@@ -1,2 +1,0 @@
-localization
--DCATKIN_DEVEL_PREFIX=/home/rishabh/localization/devel -DCMAKE_INSTALL_PREFIX=/home/rishabh/localization/install
