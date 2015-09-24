@@ -1116,6 +1116,30 @@ src/encoders.cpp.s:
 	cd /home/rishabh/localization/build && $(MAKE) -f localization/CMakeFiles/encoders.dir/build.make localization/CMakeFiles/encoders.dir/src/encoders.cpp.s
 .PHONY : src/encoders.cpp.s
 
+src/final_viz.o: src/final_viz.cpp.o
+.PHONY : src/final_viz.o
+
+# target to build an object file
+src/final_viz.cpp.o:
+	cd /home/rishabh/localization/build && $(MAKE) -f localization/CMakeFiles/final_viz.dir/build.make localization/CMakeFiles/final_viz.dir/src/final_viz.cpp.o
+.PHONY : src/final_viz.cpp.o
+
+src/final_viz.i: src/final_viz.cpp.i
+.PHONY : src/final_viz.i
+
+# target to preprocess a source file
+src/final_viz.cpp.i:
+	cd /home/rishabh/localization/build && $(MAKE) -f localization/CMakeFiles/final_viz.dir/build.make localization/CMakeFiles/final_viz.dir/src/final_viz.cpp.i
+.PHONY : src/final_viz.cpp.i
+
+src/final_viz.s: src/final_viz.cpp.s
+.PHONY : src/final_viz.s
+
+# target to generate assembly for a file
+src/final_viz.cpp.s:
+	cd /home/rishabh/localization/build && $(MAKE) -f localization/CMakeFiles/final_viz.dir/build.make localization/CMakeFiles/final_viz.dir/src/final_viz.cpp.s
+.PHONY : src/final_viz.cpp.s
+
 src/gps.o: src/gps.cpp.o
 .PHONY : src/gps.o
 
@@ -1187,30 +1211,6 @@ src/imu.s: src/imu.cpp.s
 src/imu.cpp.s:
 	cd /home/rishabh/localization/build && $(MAKE) -f localization/CMakeFiles/imu.dir/build.make localization/CMakeFiles/imu.dir/src/imu.cpp.s
 .PHONY : src/imu.cpp.s
-
-src/odom_combined_viz.o: src/odom_combined_viz.cpp.o
-.PHONY : src/odom_combined_viz.o
-
-# target to build an object file
-src/odom_combined_viz.cpp.o:
-	cd /home/rishabh/localization/build && $(MAKE) -f localization/CMakeFiles/final_viz.dir/build.make localization/CMakeFiles/final_viz.dir/src/odom_combined_viz.cpp.o
-.PHONY : src/odom_combined_viz.cpp.o
-
-src/odom_combined_viz.i: src/odom_combined_viz.cpp.i
-.PHONY : src/odom_combined_viz.i
-
-# target to preprocess a source file
-src/odom_combined_viz.cpp.i:
-	cd /home/rishabh/localization/build && $(MAKE) -f localization/CMakeFiles/final_viz.dir/build.make localization/CMakeFiles/final_viz.dir/src/odom_combined_viz.cpp.i
-.PHONY : src/odom_combined_viz.cpp.i
-
-src/odom_combined_viz.s: src/odom_combined_viz.cpp.s
-.PHONY : src/odom_combined_viz.s
-
-# target to generate assembly for a file
-src/odom_combined_viz.cpp.s:
-	cd /home/rishabh/localization/build && $(MAKE) -f localization/CMakeFiles/final_viz.dir/build.make localization/CMakeFiles/final_viz.dir/src/odom_combined_viz.cpp.s
-.PHONY : src/odom_combined_viz.cpp.s
 
 src/odom_viz.o: src/odom_viz.cpp.o
 .PHONY : src/odom_viz.o
@@ -1374,6 +1374,9 @@ help:
 	@echo "... src/encoders.o"
 	@echo "... src/encoders.i"
 	@echo "... src/encoders.s"
+	@echo "... src/final_viz.o"
+	@echo "... src/final_viz.i"
+	@echo "... src/final_viz.s"
 	@echo "... src/gps.o"
 	@echo "... src/gps.i"
 	@echo "... src/gps.s"
@@ -1383,9 +1386,6 @@ help:
 	@echo "... src/imu.o"
 	@echo "... src/imu.i"
 	@echo "... src/imu.s"
-	@echo "... src/odom_combined_viz.o"
-	@echo "... src/odom_combined_viz.i"
-	@echo "... src/odom_combined_viz.s"
 	@echo "... src/odom_viz.o"
 	@echo "... src/odom_viz.i"
 	@echo "... src/odom_viz.s"

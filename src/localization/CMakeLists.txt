@@ -125,7 +125,7 @@ catkin_package(
  add_executable(dummy src/dummy.cpp)
  add_executable(velocity src/velocity.cpp)
  add_executable(position src/position.cpp)
- add_executable(final_viz src/odom_combined_viz.cpp)
+ add_executable(final_viz src/final_viz.cpp)
  add_executable(odom_viz src/odom_viz.cpp)
  add_executable(gps_viz src/gps_viz.cpp)
  

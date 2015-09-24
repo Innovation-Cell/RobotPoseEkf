@@ -1,5 +1,5 @@
 FILE(REMOVE_RECURSE
-  "CMakeFiles/final_viz.dir/src/odom_combined_viz.cpp.o"
+  "CMakeFiles/final_viz.dir/src/final_viz.cpp.o"
   "/home/rishabh/localization/devel/lib/localization/final_viz.pdb"
   "/home/rishabh/localization/devel/lib/localization/final_viz"
 )

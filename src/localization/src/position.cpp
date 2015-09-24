@@ -53,7 +53,7 @@ void Velocity_Callback(const nav_msgs::Odometry::ConstPtr& info)
 
 		//Twist
 		output.twist.twist.linear.x = (info->twist.twist.linear.x)*(cos(heading));
-		output.twist.twist.linear.y = (info->twist.twist.linear.y)*(sin(heading));
+		output.twist.twist.linear.y = (info->twist.twist.linear.x)*(sin(heading));
 		output.twist.twist.angular.z = info->twist.twist.angular.z;
 		
 		//Position

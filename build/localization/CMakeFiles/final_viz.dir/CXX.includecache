@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/rishabh/localization/src/localization/src/odom_combined_viz.cpp
+/home/rishabh/localization/src/localization/src/final_viz.cpp
 ros/ros.h
 /home/rishabh/localization/src/localization/src/ros/ros.h
 tf/tf.h
