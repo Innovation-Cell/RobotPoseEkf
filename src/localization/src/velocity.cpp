@@ -3,9 +3,6 @@
 
 #include "math.h"
 
-#include "vectornav/vn100_msg.h"
-#include "roboteq/roboteq_msg.h"
-
 #include "sensor_msgs/Imu.h"
 #include "nav_msgs/Odometry.h"
 
