@@ -127,7 +127,7 @@ int main(int argc, char* argv[]){
 			//RPM Stuff
 			unfiltered.rpm_1 = ch1_rpm_value; unfiltered.rpm_2 = ch2_rpm_value;
 		
-		/*Low-Pass Filtering*/
+		/*LowPass Filtering*/
 		low_pass(unfiltered);
 		
 		/*Calculating 'v' and 'w' From Filtered Data*/

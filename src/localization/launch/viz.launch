@@ -4,7 +4,7 @@
   <node pkg="localization" type="odom_viz" name="odom_viz" respawn="true" />
   <node pkg="localization" type="gps_viz" name="gps_viz" respawn="true" />
 
-  <node pkg="rosbag" type="play" name="player" args="/home/rishabh/localization/2015-09-22-20-01-10.bag" />
+  <node pkg="rosbag" type="play" name="player" args="/home/tejask1896/sedrica/2015-10-08-22-00-55.bag" />
 
   <node pkg="rviz" type="rviz" name="rviz" />
 
