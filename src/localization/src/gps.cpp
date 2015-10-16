@@ -83,9 +83,9 @@ int main(int argc, char* argv[]){
 		
 			initialNorthing += UTMConverted.northing;
 			initialEasting += UTMConverted.easting;
-			
-			i++;
 		}
+
+		i++;
 	}
 	
 	initialNorthing /= 50;

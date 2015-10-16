@@ -61,8 +61,8 @@ void Velocity_Callback(const nav_msgs::Odometry::ConstPtr& info)
 		//Position
 		increment = (info->twist.twist.linear.x)*times[0];
 		if(increment<10&&increment>-10){
-			x_increment += increment*(cos(heading));
-			y_increment += increment*(sin(heading));
+			x_increment = increment*(cos(heading));
+			y_increment = increment*(sin(heading));
 		}
 		else {
 			x_increment = 0;
@@ -74,19 +74,19 @@ void Velocity_Callback(const nav_msgs::Odometry::ConstPtr& info)
 	}
 }
 
-void Reset_Callback(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr& info)
-{
-	if(reset_flag == 1)
-	{
-		if(sqrt(pow((info->pose.pose.position.x - output.pose.pose.position.x),2) + pow((info->pose.pose.position.y - output.pose.pose.position.y),2)) < 0.30)
-		{
-			output.pose.pose.position.x = info->pose.pose.position.x;
-			output.pose.pose.position.y = info->pose.pose.position.y;
-		}
-	}
+// void Reset_Callback(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr& info)
+// {
+// 	if(reset_flag == 1)
+// 	{
+// 		// if(sqrt(pow((info->pose.pose.position.x - output.pose.pose.position.x),2) + pow((info->pose.pose.position.y - output.pose.pose.position.y),2)) < 0.30)
+// 		// {
+// 		// 	output.pose.pose.position.x = info->pose.pose.position.x;
+// 		// 	output.pose.pose.position.y = info->pose.pose.position.y;
+// 		// }
+// 	}
 	
-	reset_flag = 0;
-}
+// 	reset_flag = 0;
+// }
 
 
 
@@ -100,6 +100,7 @@ int main(int argc, char* argv[])
 	n.setCallbackQueue(sensor_callbacks_interface);
 
 	ros::Subscriber velocityMonitor = n.subscribe("/velocity", 5, Velocity_Callback);
+	//ros::Subscriber finalekfMonitor = n.subscribe("/robot_pose_ekf/odom_combined", 5, Reset_Callback);
 	
 	
 	///Publisher for Predict Phase Output
@@ -123,18 +124,18 @@ int main(int argc, char* argv[])
 	output.header.frame_id = "odom_combined";
 	output.child_frame_id = "base_footprint";
 	
-	ros::Subscriber finalekfMonitor = n.subscribe("/robot_pose_ekf/odom_combined", 5, Reset_Callback);
 
 	ros::Rate loop_rate(50);
 	while(ros::ok())
 	{
 		velocity_called = 0;
 		sensor_callbacks.callAvailable();
-		if(reset_flag == 0)
-		{
-			predict_mean();
-		}
-		reset_flag = 1;
+		// if(reset_flag == 0)
+		// {
+		// 	predict_mean();
+		// }
+		// reset_flag = 1;
+		predict_mean();
 
 		if(velocity_called){			
 			x_increment = 0; y_increment = 0;
@@ -142,8 +143,8 @@ int main(int argc, char* argv[])
 		output.twist.covariance[0] = linearVelocityVariance;
 		output.twist.covariance[7] = linearVelocityVariance;
 		output.twist.covariance[35] = angularVelocityVariance;
-		output.pose.covariance[0] = 0.01;
-		output.pose.covariance[7] = 0.01;
+		output.pose.covariance[0] = 0.5;
+		output.pose.covariance[7] = 0.5;
 		output.pose.covariance[35] = 0.01;
 
 		output.header.stamp = ros::Time::now();

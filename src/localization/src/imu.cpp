@@ -98,7 +98,7 @@ int main(int argc, char **argv)
 				//Header data
 				unfiltered.stamp = ros::Time::now();
 				//IMU data
-				unfiltered.x = bodyAcceleration.c0; unfiltered.y = bodyAcceleration.c1; unfiltered.y = bodyAcceleration.c1;
+				unfiltered.x = bodyAcceleration.c0; unfiltered.y = bodyAcceleration.c1; unfiltered.z = bodyAcceleration.c2;
 				unfiltered.av_x = angularRate.c0; unfiltered.av_y = angularRate.c1; unfiltered.av_z = angularRate.c2;
 				low_pass(unfiltered);
 
@@ -116,9 +116,9 @@ int main(int argc, char **argv)
 				for (int i=0; i<9; i++){
 					output.orientation_covariance[i] = 0;
 				}
-				output.orientation_covariance[0] = 0;
-				output.orientation_covariance[4] = 0;
-				output.orientation_covariance[8] = 0;
+				output.orientation_covariance[0] = 0.01;
+				output.orientation_covariance[4] = 0.01;
+				output.orientation_covariance[8] = 0.01;
 				//Angular Velocity Variance
 				for(int i=0; i<9; i++){
 					output.angular_velocity_covariance[i] = 0;

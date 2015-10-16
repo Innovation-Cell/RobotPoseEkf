@@ -18,12 +18,12 @@ const float RAD_TO_DEG = 180/3.141592;
 const float DEG_TO_RAD = 3.141592/180;
 
 //Vehicle constants
-const float Lr = 0.62; //distance between wheels (in meters)
+const float Lr = 0.65; //distance between wheels (in meters)
 const float CIRC = 3.141592*0.38; //wheel circumference (in meters)
-const float REDUCTION = 66.0;
+const float REDUCTION = 91.0;
 const float RPM_TO_RPS = 1/60.0; //from per minute to per second
 const float v_factor = (CIRC*RPM_TO_RPS)/(2*REDUCTION);
-const float w_factor = (CIRC*RAD_TO_DEG*RPM_TO_RPS)/(Lr*REDUCTION);
+const float w_factor = (CIRC*2*RPM_TO_RPS)/(2*Lr*REDUCTION);
 			
 //Device driver variables
 RoboteqDevice device;
@@ -39,7 +39,8 @@ double v, w; //v in m/s, w in deg/s
 double linearVelocityVariance = 0.01;
 double angularVelocityVariance = 0.01;
 
-void low_pass(localization::roboteq_msg &unfiltered){
+void low_pass(localization::roboteq_msg &unfiltered)
+{
 	static float rpms[2];
 	
 	static double times[2];
@@ -63,7 +64,8 @@ void low_pass(localization::roboteq_msg &unfiltered){
 }
 
 
-int main(int argc, char* argv[]){	
+int main(int argc, char* argv[])
+{	
 	
 	///ROS Initializations
 	ros::init(argc, argv, "Roboteq_Channel_Tests");
@@ -144,8 +146,8 @@ int main(int argc, char* argv[]){
 			output.twist.twist.linear.x = v;
 			output.twist.twist.angular.z = w;
 			//Covariances
-			output.twist.covariance[0]=linearVelocityVariance = 0.01;
-			output.twist.covariance[35]=angularVelocityVariance = 0.01;
+			output.twist.covariance[0] = linearVelocityVariance;
+			output.twist.covariance[35] = angularVelocityVariance;
 		
 		/*Publishing*/
 		publisher.publish(output);
