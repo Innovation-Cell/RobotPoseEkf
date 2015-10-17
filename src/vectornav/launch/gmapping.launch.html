@@ -1,0 +1,45 @@
+<!--xml-->
+<launch>
+<node name="mapper" pkg="gmapping" type="slam_gmapping">
+    <param name="map_udpate_interval" value="3.0"/>
+    <param name="maxUrange" value="7.9"/>
+    <param name="maxRange" value="20.1"/>
+    <param name="sigma" value="0"/><!-- badha skate hai -->
+    <param name="kernelSize" value="1"/>
+    <param name="lstep" value="0.15"/>
+    <param name="astep" value="0.15"/>
+    <param name="iterations" value="1"/><!-- badha skate hai -->
+    <param name="lsigma" value="0.1"/><!-- badha skate hai -->
+    <param name="ogain" value="3.0"/>
+    <param name="lskip" value="1"/>
+    <param name="srr" value="0"/><!-- odom -->
+    <param name="srt" value="0"/>
+    <param name="str" value="0"/>
+    <param name="stt" value="0"/>
+    <param name="linearUpdate" value="0.1"/>
+    <param name="angularUpdate" value="0.1"/>
+    <param name="temporalUpdate" value="0.54"/>
+    <param name="resampleThreshold" value="0.5"/>
+    <param name="particles" value="1"/>
+    <param name="xmin" value="-10.0"/>
+    <param name="ymin" value="-10.0"/>
+    <param name="xmax" value="10.0"/>
+    <param name="ymax" value="10.0"/>
+    <param name="delta" value="0.0455"/><!-- handy -->
+    <param name="llsamplerange" value="0.01"/>
+    <param name="llsamplestep" value="0.01"/>
+    <param name="lasamplerange" value="0.005"/>
+    <param name="lasamplestep" value="0.005"/>
+    <param name="occ_thresh" value="0.25"/><!-- handy -->
+    <param name="transform_publish_period" value="0.04" />
+</node>
+<!--
+<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find paralaunch)/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find paralaunch)/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find paralaunch)/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find paralaunch)/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find paralaunch)/base_local_planner_params.yaml" command="load" />
+</node>
+-->
+</launch>

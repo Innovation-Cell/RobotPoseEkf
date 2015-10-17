@@ -143,8 +143,8 @@ int main(int argc, char* argv[])
 		output.twist.covariance[0] = linearVelocityVariance;
 		output.twist.covariance[7] = linearVelocityVariance;
 		output.twist.covariance[35] = angularVelocityVariance;
-		output.pose.covariance[0] = 0.5;
-		output.pose.covariance[7] = 0.5;
+		output.pose.covariance[0] = 0.01;
+		output.pose.covariance[7] = 0.01;
 		output.pose.covariance[35] = 0.01;
 
 		output.header.stamp = ros::Time::now();

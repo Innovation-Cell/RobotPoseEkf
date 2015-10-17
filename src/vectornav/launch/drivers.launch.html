@@ -1,0 +1,41 @@
+<!--xml-->
+<launch>
+<node name="IMU" pkg="vectornav" type="vect" />
+<!--
+<node name="roboteq" pkg="roboteq" type="roboteq" />-->
+
+<node name="lidar" pkg="LMS1xx" type="LMS100" >
+    <param name="host" value="192.168.0.10"/>
+    <param name="baud" value="9600"/>
+</node>
+
+<node name="gps" pkg="nmea_gps_driver" type="nmea_gps_driver.py">
+    <param name="port" value="/dev/ttyUSB1"/>
+    <param name="baud" value="9600"/>
+</node>
+  <node ns="camera1" pkg="uvc_camera" type="camera_node" name="uvc_camera1" output="screen">
+    <param name="width" type="int" value="640" />
+    <param name="height" type="int" value="480" />
+    <param name="fps" type="int" value="30" />
+    <param name="frame" type="string" value="webcam" />
+    <param name="device" type="string" value="/dev/video1" />
+  </node>
+
+<node ns="camera2" pkg="uvc_camera" type="camera_node" name="uvc_camera2" output="screen">
+    <param name="width" type="int" value="640" />
+    <param name="height" type="int" value="480" />
+    <param name="fps" type="int" value="30" />
+    <param name="frame" type="string" value="webcam" />
+    <param name="device" type="string" value="/dev/video2" />
+  </node>
+
+<node name="laser_base" pkg="gen_tf" type="laser_base" />
+
+<node name="xy_base" pkg="gen_tf" type="xy_base" />
+
+<node name="camera_base" pkg="gen_tf" type="camera_base" />
+<!--
+<node name="odometry" pkg="odom1" type="odometry_enc" />-->
+
+<node name="maskdata" pkg="caminput" type="maskregion" />
+</launch>

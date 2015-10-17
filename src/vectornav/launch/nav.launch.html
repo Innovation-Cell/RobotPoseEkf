@@ -1,0 +1,11 @@
+<!--xml-->
+<launch>
+	<node name="global_plan" pkg="a2star" type="astar">
+	    <param name="radius" value="50"/>
+	</node>
+
+	<node name="local_plan" pkg="simple_nav" type="april" />
+
+	<node name="rviz" pkg="rviz" type="rviz" />
+
+</launch>

@@ -1,0 +1,12 @@
+<!--xml-->
+<launch>
+<node name="laser_base" pkg="gen_tf" type="laser_base" />
+
+<node name="xy_base" pkg="gen_tf" type="xy_base" />
+
+<node name="camera_base" pkg="gen_tf" type="camera_base" />
+
+<node name="odometry" pkg="odom" type="odometry_gps" />
+
+<node name="maskdata" pkg="caminput" type="maskregion" />
+</launch>

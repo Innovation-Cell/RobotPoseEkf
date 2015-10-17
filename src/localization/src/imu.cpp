@@ -10,6 +10,7 @@
 
 #include "vectornav.h"
 
+#include "localization/vn100_msg.h"
 #include "localization/lp.h"
 
 
@@ -64,6 +65,7 @@ int main(int argc, char **argv)
 	ros::init(argc, argv, "IMU_Interface"); 
 	ros::NodeHandle imu;
 	ros::Publisher imuDataPublisher = imu.advertise<sensor_msgs::Imu>("/imu_data", 1);
+	ros::Publisher infer = imu.advertise<localization::vn100_msg>("/vn100_monitor", 1);
 
 	///Connection to Vectornav
 	int connect = 0;
@@ -81,6 +83,7 @@ int main(int argc, char **argv)
 	ros::Rate loop_rate(20);
 	
 	localization::lp unfiltered;
+	localization::vn100_msg info;
 	output.header.frame_id = "imu";
 
 	while (ros::ok()) {
@@ -133,12 +136,20 @@ int main(int argc, char **argv)
 				output.linear_acceleration_covariance[0] = accelerationVariance.c0;
 				output.linear_acceleration_covariance[4] = accelerationVariance.c1;
 				output.linear_acceleration_covariance[8] = accelerationVariance.c2;
+
+
+				//For vn100_monitor (i.e. for running the vehicle along a particular heading)
+				info.header.stamp = output.header.stamp; info.header.seq++;
+				info.linear.x = output.linear_acceleration.x; info.linear.y = output.linear_acceleration.y;
+				info.linear.theta = attitude.yaw;
+				info.angular_velocity = output.angular_velocity.z;
 		
 		//double headingDebugging = tf::getYaw(output.orientation);
 		//ROS_INFO("Heading sent: %f", headingDebugging);
 		
 		//Other Stuff//
 		imuDataPublisher.publish(output);
+		infer.publish(info);
 		loop_rate.sleep(); 
 
 	}

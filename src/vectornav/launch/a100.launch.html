@@ -1,0 +1,7 @@
+<!--xml-->
+<launch>
+<node name="gps" pkg="nmea_gps_driver" type="nmea_gps_driver.py">
+     <param name="port" value="/dev/ttyUSB1"/>
+    <param name="baud" value="9600"/>
+</node>
+</launch>

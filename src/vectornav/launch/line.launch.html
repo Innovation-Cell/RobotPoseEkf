@@ -1,0 +1,14 @@
+<!--xml-->
+<launch>
+	<node name="pixelate" pkg="ip" type="pixelate"/>
+	<node name="imglocal" pkg="imglocal" type="img_local" />
+
+	<node name="local_merge" pkg="local_merge" type="gmapstitch">
+	    <param name="occ_thresh" value="80"/>
+	    <param name="occ_weight" value="0.85"/>
+	    <param name="map_udpate_frequency" value="0.2"/>
+	</node>
+
+	<node name="linescan" pkg="yo" type="linelocal" />
+
+</launch>

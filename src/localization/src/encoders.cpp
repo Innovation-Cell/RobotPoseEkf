@@ -17,13 +17,15 @@ using namespace std;
 const float RAD_TO_DEG = 180/3.141592;
 const float DEG_TO_RAD = 3.141592/180;
 
+const float CF = 0.9; //Correction Factor
+
 //Vehicle constants
 const float Lr = 0.65; //distance between wheels (in meters)
 const float CIRC = 3.141592*0.38; //wheel circumference (in meters)
 const float REDUCTION = 91.0;
 const float RPM_TO_RPS = 1/60.0; //from per minute to per second
-const float v_factor = (CIRC*RPM_TO_RPS)/(2*REDUCTION);
-const float w_factor = (CIRC*2*RPM_TO_RPS)/(2*Lr*REDUCTION);
+const float v_factor = (0.93*2*CIRC*RPM_TO_RPS)/(2*REDUCTION);
+const float w_factor = (CF*CIRC*2*RPM_TO_RPS)/(2*Lr*REDUCTION);
 			
 //Device driver variables
 RoboteqDevice device;

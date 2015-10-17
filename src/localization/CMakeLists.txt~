@@ -55,7 +55,8 @@ find_package(catkin REQUIRED
    FILES
    lp.msg
    lla.msg
-   roboteq_msg.msg    
+   roboteq_msg.msg
+   vn100_msg.msg  
  )
 
 ## Generate services in the 'srv' folder
